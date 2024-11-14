@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPP Tools</title>
+    <style>
+        body {
+            width: 200px;
+        }
+        button {
+            width: 100px;
+        }
+        .origin-damain-text {
+          font-size: 12px;
+          color: #1189ce;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          word-wrap: break-word;
+        }
+        .get_all_cookies, .set_cookie, .remove_cookie {
+          display: flex;
+          border-radius: 8px;
+          background: #1fbee662;
+          line-height: 18px;
+          border-color: azure;
+        }
+        .btn-box {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-around;
+        }
+    </style>
+    <script src="popup.js"></script>
+</head>
+
+<body>
+    <div class="cookie_container">
+      <div class="origin-damain-text">cookie来源：
+        <span id="origin-damain-url"></span>
+      </div>
+      <div class="origin-damain-text" id="origin-damain-cookie"></div>
+      <div class="btn-box">
+        <button class="get_all_cookies">获取Cookie</button>
+        <button class="set_cookie">设置Cookie</button>
+        <button class="remove_cookie">移除Cookie</button>
+      </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+{
+	"name" : "PPP Tools",
+	"version" : "1.0",
+	"manifest_version": 3,
+	"background": { 
+		"scripts": ["background.js"] 
+	},
+	"icons": { "128": "images/logo.png" },
+	"action": {
+		"default_icon" : "images/logo.png",
+		"default_title" : "PPP工具库",
+		"default_popup": "popup.html"
+	},
+  	"permissions" : [ "tabs","notifications", "cookies", "storage", "console" ],
+  	"host_permissions": ["cookies", "*://*/*", "<all_urls>", "storage", "console"]
+}
