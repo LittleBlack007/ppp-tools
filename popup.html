@@ -19,7 +19,7 @@
           white-space: nowrap;
           word-wrap: break-word;
         }
-        .get_all_cookies, .set_cookie, .remove_cookie {
+        .common-btn {
           display: flex;
           border-radius: 8px;
           background: #1fbee662;
@@ -30,21 +30,34 @@
           display: flex;
           flex-wrap: wrap;
           justify-content: space-around;
+          margin-top: 8px;
+        }
+        .radio-item {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          flex-wrap: nowrap;
+        }
+        .text-ellipsis {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          word-break: break-all;
         }
     </style>
-    <script src="popup.js"></script>
+    <script src="popup.js" type="module"></script>
 </head>
 
 <body>
     <div class="cookie_container">
       <div class="origin-damain-text">cookie来源：
-        <span id="origin-damain-url"></span>
+        <form action="" id="form" class="text-ellipsis"></form>
       </div>
-      <div class="origin-damain-text" id="origin-damain-cookie"></div>
       <div class="btn-box">
-        <button class="get_all_cookies">获取Cookie</button>
-        <button class="set_cookie">设置Cookie</button>
-        <button class="remove_cookie">移除Cookie</button>
+        <button class="get_all_cookies common-btn">获取Cookie</button>
+        <button class="set_cookie common-btn">设置Cookie</button>
+        <button class="remove_cookie common-btn">清除当前页面Cookie</button>
+        <button class="remove_cur_cookie common-btn">删除勾选Cookie</button>
       </div>
     </div>
 </body>

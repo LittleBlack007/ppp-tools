@@ -1,11 +1,10 @@
 var url="";
-chrome.browserAction.setPopup();
 //插件按钮图标点击后进入后台
-chrome.browserAction.onClicked.addListener(function(tab) {
-	alert(JSON.stringify(tab))
-	url = "http://"+(tab.url).split("/")[2]+"/admin/";
-	// chrome.tabs.create( { url:url }, function(){ postData() });
-});
+// chrome.browserAction.onClicked.addListener(function(tab) {
+// 	alert(JSON.stringify(tab))
+// 	url = "http://"+(tab.url).split("/")[2]+"/admin/";
+// 	// chrome.tabs.create( { url:url }, function(){ postData() });
+// });
 
 
 //进入后台后提交账号密码
