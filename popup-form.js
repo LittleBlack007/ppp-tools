@@ -5,7 +5,7 @@ export function getRadioValue() {
   if(checkedItem) {
     return {
       originUrl: checkedItem.value,
-      cookieArr: JSON.parse(checkedItem.dataset.cookieStr ||'[]')
+      cookieArr: JSON.parse(checkedItem.dataset.cookiestr ||'[]')
     }
   }
   return {};

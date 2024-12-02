@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const checkedItem = getRadioValue();
           const tabs = await chrome.tabs.query({ active: true, lastFocusedWindow: true });
           let url = tabs[0].url;
-          const currentCookiesList = JSON.parse(checkedItem.cookieArr);
+          const currentCookiesList = checkedItem.cookieArr;
           currentCookiesList.map(item => {
             chrome.cookies.set({
               url,
