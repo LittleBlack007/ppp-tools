@@ -46,7 +46,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (remove_cur_cookie_element) {
       remove_cur_cookie_element.addEventListener("click", async function () {
         const checkedItem = getRadioValue();
-        let { pppToolsCookieList } =  await chrome.storage.local.get(['pppToolsCookieList']) || [];
+        let { pppToolsCookieList } =  (await chrome.storage.local.get(['pppToolsCookieList']));
+        if(!Array.isArray(pppToolsCookieList)) {
+          pppToolsCookieList = [];
+        }
         pppToolsCookieList = pppToolsCookieList.filter(item => item.originUrl !== checkedItem.originUrl);
         chrome.storage.local.set({ pppToolsCookieList });
         renderRadios();
@@ -58,8 +61,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
       let url = tabs[0].url;
       const cookies = await chrome.cookies.getAll({ url });
-      let { pppToolsCookieList } =  await chrome.storage.local.get(['pppToolsCookieList']) || [];
-      pppToolsCookieList = pppToolsCookieList.filter(item => item.originUrl !== url)
+      let { pppToolsCookieList } =  (await chrome.storage.local.get(['pppToolsCookieList']));
+      if(!Array.isArray(pppToolsCookieList)) {
+        pppToolsCookieList = [];
+      }
+      pppToolsCookieList = pppToolsCookieList.filter(item => item.originUrl !== url);
       pppToolsCookieList.push({
         'cookieStr': JSON.stringify(cookies.map(item => ({ name: item.name, value: item.value }))),
         'originUrl': url
